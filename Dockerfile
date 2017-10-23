@@ -25,7 +25,7 @@ RUN DEBIAN_FRONTEND=noninteractive && \
 	git clone https://github.com/evanmiller/mod_rrd_graph.git /tmp/mod_rrd_graph && \
 	git clone https://github.com/oetiker/rrdtool-1.x.git /tmp/rrdtool && \
 	cd /tmp/ModSecurity/ && \
-	git checkout v2.9.2 && \
+	git checkout -b v2.9.2 && \
 	git submodule init && \
 	git submodule update && \
 	./build.sh && \
