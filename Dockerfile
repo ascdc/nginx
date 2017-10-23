@@ -41,7 +41,8 @@ RUN DEBIAN_FRONTEND=noninteractive && \
 	cp /tmp/owasp-modsecurity-crs/rules/REQUEST-900-EXCLUSION-RULES-BEFORE-CRS.conf.example /tmp/owasp-modsecurity-crs/rules/REQUEST-900-EXCLUSION-RULES-BEFORE-CRS.conf && \
 	cp /tmp/owasp-modsecurity-crs/rules/RESPONSE-999-EXCLUSION-RULES-AFTER-CRS.conf.example /tmp/owasp-modsecurity-crs/rules/RESPONSE-999-EXCLUSION-RULES-AFTER-CRS.conf && \
 	cp /tmp/owasp-modsecurity-crs/rules/*.data /etc/nginx/ && \
-	cat /tmp/ModSecurity/modsecurity.conf-recommended /tmp/owasp-modsecurity-crs/crs-setup.conf.example /tmp/owasp-modsecurity-crs/rules/*.conf > /etc/nginx/rules.conf
+	cat /tmp/ModSecurity/modsecurity.conf-recommended /tmp/owasp-modsecurity-crs/crs-setup.conf.example /tmp/owasp-modsecurity-crs/rules/*.conf > /etc/nginx/rules.conf && \
+	sed -i "s/SecRuleEngine.*/SecRuleEngine On/g" /etc/nginx/rules.conf
 
 ADD nginx.conf /etc/nginx/nginx.conf
 
